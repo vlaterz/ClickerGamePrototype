@@ -17,3 +17,7 @@ MonoBehaviour:
   ClickImage: {fileID: 21300000, guid: ddc805c04d7b8a349b7e2ee13067bc0a, type: 3}
   Background: {fileID: 21300000, guid: fc22f44418548b642a5520e86e1b2f25, type: 3}
   Difficulty: 2
+  Leaders:
+  - id: 5
+    name: kekw
+    time: 3

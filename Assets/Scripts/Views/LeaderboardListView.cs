@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Data;
 using UnityEngine;
 
@@ -8,12 +8,15 @@ namespace Assets.Scripts.Views
     {
         [SerializeField] private LeaderboardEntryView _entryRef;
 
-        public void BuildLeaderboard(PlayerData[] datas)
+        public void RebuildLeaderboard(PlayerData[] datas)
         {
-            foreach (var playerData in datas)
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
+
+            foreach (var playerData in datas.OrderByDescending(a=>a.Time))
             {
                 var newEntry = Instantiate(_entryRef, transform);
-                newEntry.GetComponent<LeaderboardEntryView>().SetEntry(playerData.name, playerData.time.ToString());
+                newEntry.GetComponent<LeaderboardEntryView>().SetEntry(playerData.Name, playerData.Time.ToString());
             }
         }
     }

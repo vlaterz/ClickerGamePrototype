@@ -1,12 +1,18 @@
 using System;
+using Newtonsoft.Json;
 
 namespace Assets.Scripts.Data
 {
     [Serializable]
-    public struct PlayerData
+    public class PlayerData
     {
-        public int id;
-        public string name;
-        public float time;
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("time")]
+        public double Time { get; set; }
     }
 }

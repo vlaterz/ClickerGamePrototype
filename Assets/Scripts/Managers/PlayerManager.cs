@@ -1,4 +1,5 @@
 using Assets.Scripts.Components;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Views;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Assets.Scripts.Managers
         public int CurrentPoints = 0;
         public int PointsForAction = 1;
 
+        void Awake() => _instance = this;
+
         public void AddPointsForAction()
         {
             CurrentPoints += PointsForAction;
@@ -24,11 +27,6 @@ namespace Assets.Scripts.Managers
                 _leaderboardViewRef.ActivateView();
             }
             _levelProgressViewRef.UpdateView(CurrentPoints, LevelLoadController.Instance.PointsRequired);
-        } 
-
-        void Awake()
-        {
-            _instance = this;
         }
     }
 }

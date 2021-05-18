@@ -37,7 +37,7 @@ namespace Assets.Scripts.Views
             {
                 scrollrectRef.SetActive(false);
                 levelInfoPanelRef.SetActive(true);
-                UIController.Instance.ActivateLevelInfoWithLevelData(_entryLevelData);
+                UiController.Instance.ActivateLevelInfoWithLevelData(_entryLevelData);
             });
         }
     }

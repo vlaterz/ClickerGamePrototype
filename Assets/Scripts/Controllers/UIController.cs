@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
-    public class UIController : MonoBehaviour
+    public class UiController : MonoBehaviour
     {
-        private static UIController _instance;
-        public static UIController Instance => _instance;
+        private static UiController _instance;
+        public static UiController Instance => _instance;
         void Awake() => _instance = this;
 
         public LevelListView LevelListView;

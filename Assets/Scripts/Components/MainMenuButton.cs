@@ -7,7 +7,7 @@ namespace Assets.Scripts.Components
     {
         void Start()
         {
-            GetComponent<Button>().onClick.AddListener(()=>GameLoader.Instance.LoadMainMenu());
+            GetComponent<Button>().onClick.AddListener(() => GameLoader.Instance.LoadMainMenu());
         }
     }
 }

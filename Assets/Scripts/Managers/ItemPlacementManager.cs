@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Managers
 {
     [Serializable]
     public struct Offsets

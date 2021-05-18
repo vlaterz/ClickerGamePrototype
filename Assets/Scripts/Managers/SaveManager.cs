@@ -9,8 +9,8 @@ namespace Assets.Scripts.Managers
     [Serializable]
     public class SoundSettings
     {
-        [SerializeField] public bool sound;
-        [SerializeField] public bool music;
+        [SerializeField] public bool Sound;
+        [SerializeField] public bool Music;
     }
 
     public class SaveManager : MonoBehaviour
@@ -22,10 +22,10 @@ namespace Assets.Scripts.Managers
 
         [SerializeField] private static string _SettingsSaveFileName = "SettingsData.binary";
 
-        private SoundSettings Settings = new SoundSettings()
+        private SoundSettings _settings = new SoundSettings()
         {
-            music = true,
-            sound = true
+            Music = true,
+            Sound = true
         };
 
         void Start()
@@ -35,40 +35,36 @@ namespace Assets.Scripts.Managers
 
         public void SaveSettings()
         {
-            var data = JsonUtility.ToJson(Settings);
+            var data = JsonUtility.ToJson(_settings);
             var path = Application.persistentDataPath + $"/{_SettingsSaveFileName}";
             var stream = new FileStream(path, FileMode.Create);
             Formatter.Serialize(stream, data);
             stream.Close();
-            Debug.Log($"Settings saved to {path}");
         }
 
         public void LoadSettings()
         {
             var path = Application.persistentDataPath + $"/{_SettingsSaveFileName}";
             if (!File.Exists(path))
-            {
-                Debug.Log("SettingsData file does not exist");
                 return;
-            }
-        
+            
             var stream = new FileStream(path, FileMode.Open);
             var sss = Formatter.Deserialize(stream);
-            Settings = JsonUtility.FromJson<SoundSettings>((string)sss);
+            _settings = JsonUtility.FromJson<SoundSettings>((string)sss);
             stream.Close();
-            _soundToggleRef.isOn = Settings.sound;
-            _musicToggleRef.isOn = Settings.music;
+            _soundToggleRef.isOn = _settings.Sound;
+            _musicToggleRef.isOn = _settings.Music;
         }
 
         public void UpdateSettingsMusic(bool isOn)
         {
-            Settings.music = isOn;
+            _settings.Music = isOn;
             SaveSettings();
         } 
 
         public void UpdateSettingsSound(bool isOn)
         {
-            Settings.sound = isOn;
+            _settings.Sound = isOn;
             SaveSettings();
         }
     }

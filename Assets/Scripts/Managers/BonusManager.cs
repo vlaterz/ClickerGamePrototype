@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.Components;
 using Assets.Scripts.Handlers;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Assets.Scripts.Managers
 {
@@ -30,11 +26,8 @@ namespace Assets.Scripts.Managers
 
         public void StartResizeBonus() => StartCoroutine(_resizeHandler.ResizeBonus());
 
-        void Awake()
-        {
-            _instance = this;
-        }
-
+        void Awake() =>_instance = this;
+        
         void Update()
         {
             if (_currentTimer >= _bonusSpawnTimer)
@@ -47,9 +40,9 @@ namespace Assets.Scripts.Managers
 
         public void RollForPlaceRandomBonus()
         {
-            if (UnityEngine.Random.Range(0, 100) >= _bonusSpawnChance) return;
+            if (Random.Range(0, 100) >= _bonusSpawnChance) return;
 
-            Transform bonus = _bonusesRefs[UnityEngine.Random.Range(0, _bonusesRefs.Count)].transform;
+            Transform bonus = _bonusesRefs[Random.Range(0, _bonusesRefs.Count)].transform;
 
             if (bonus.gameObject.activeSelf) return;
 

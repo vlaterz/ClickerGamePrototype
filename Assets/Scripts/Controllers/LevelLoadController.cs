@@ -1,7 +1,7 @@
 using Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Controllers
 {
     [RequireComponent(typeof(LevelLoaderView))]
     public class LevelLoadController : MonoBehaviour

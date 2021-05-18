@@ -17,3 +17,13 @@ MonoBehaviour:
   ClickImage: {fileID: 21300000, guid: ddc805c04d7b8a349b7e2ee13067bc0a, type: 3}
   Background: {fileID: 21300000, guid: fc22f44418548b642a5520e86e1b2f25, type: 3}
   Difficulty: 1
+  Leaders:
+  - id: 1
+    name: aaa
+    time: 13
+  - id: 2
+    name: bbb
+    time: 15
+  - id: 4
+    name: ccc
+    time: 3
